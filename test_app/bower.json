@@ -1,0 +1,12 @@
+{
+  "name": "lare.tests",
+  "version": "0.0.1",
+  "authors": [
+    "Jonas Braun",
+    "Stephan Groß"
+  ],
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.9.1"
+  }
+}

@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %}</title>
+        <script type="text/javascript" src="{% static 'jquery/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'lare.js' %}"></script>
+        <script class="to_be_removed_script" src="{% static 'dummy.js' %}" data-remove-on-lare></script>
+        {% block inner_head %}{% endblock inner_head %}
+    </head>
+    <body data-lare-namespace="{% block lare_namespace %}{% endblock lare_namespace %}">
+        {% block site %}
+            <div id="site">
+                {% block page %}{% endblock page %}
+            </div>
+        {% endblock site %}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                if ($.support.lare) {
+                    $(document).on('click', 'a[data-lare]', function(event) {
+                        $(document).lare.click(event);
+                    });
+                }
+
+                $(document).on('lare:click', function() { $('body').attr('data-selenium-lare-click', 'true'); });
+                $(document).on('lare:beforeSend', function() { $('body').attr('data-selenium-lare-before-send', 'true'); });
+                $(document).on('lare:send', function() { $('body').attr('data-selenium-lare-send', 'true'); });
+                $(document).on('lare:timeout', function() { $('body').attr('data-selenium-lare-timeout', 'true'); });
+                $(document).on('lare:start', function() { $('body').attr('data-selenium-lare-start', 'true'); });
+                $(document).on('lare:success', function() { $('body').attr('data-selenium-lare-success', 'true'); });
+                $(document).on('lare:done', function() { $('body').attr('data-selenium-lare-done', 'true'); });
+                $(document).on('lare:fail', function() { $('body').attr('data-selenium-lare-fail', 'true'); });
+                $(document).on('lare:always', function() { $('body').attr('data-selenium-lare-always', 'true'); });
+                $(document).on('lare:end', function() { $('body').attr('data-selenium-lare-end', 'true'); });
+
+                $.fn.removeAttrs = function(regex) {
+                    return this.each(function() {
+                        var $this = $(this);
+                        var names = [];
+                        $.each(this.attributes, function(i, attr) {
+                            if (attr.specified && regex.test(attr.name)) {
+                                names.push(attr.name);
+                            }
+                        });
+                        $.each(names, function(i, name) {
+                            $this.removeAttr(name);
+                        });
+                    });
+                };
+            });
+        </script>
+    </body>
+</html>

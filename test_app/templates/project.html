@@ -1,0 +1,12 @@
+{% lare_extends '__project.html' 'lare.project' %}
+
+{% block title %}project-title{% endblock title %}
+
+{% block content %}
+    <div id="content">project-content</div>
+{% endblock content %}
+
+{# multiline namespace to prove #24 #}
+{% block lare_namespace %}
+    lare.project.index
+{% endblock lare_namespace %}

@@ -1,0 +1,12 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block title %}no-matching-id-title{% endblock title %}
+
+{% block page %}
+    <div id="not-matching-123">
+        {% include '_menu.html' with menu_no_matching_id=True %}
+        <div id="not-matching-456">no-matching-id-content</div>
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.no-matching-id{% endblock lare_namespace %}

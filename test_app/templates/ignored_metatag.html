@@ -1,0 +1,14 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block title %}ignored-metatag-title{% endblock title %}
+
+{% block inner_head %}<meta http-equiv="X-UA-Compatible" content="IE=edge">{% endblock inner_head %}
+
+{% block page %}
+    <div id="page">
+        {% include '_menu.html' with menu_ignored_metatag=True %}
+        <div id="content">ignored-metatag-content</div>
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.ignored-metatag{% endblock lare_namespace %}

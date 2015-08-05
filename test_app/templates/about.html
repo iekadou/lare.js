@@ -1,0 +1,15 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block title %}about-title{% endblock title %}
+
+{% block inner_head %}<meta name="keywords" content="This is a test">{% endblock inner_head %}
+
+{% block page %}
+    <div id="page">
+        {% include '_menu.html' with menu_about=True %}
+        <div id="content">about-content</div>
+        <div style="height: 2000px;">scrolling-test</div>
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.about{% endblock lare_namespace %}

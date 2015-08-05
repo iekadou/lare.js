@@ -1,0 +1,12 @@
+{
+    "name": "lare.tests",
+    "version": "0.0.1",
+    "author": "lare-team",
+    "private": true,
+    "scripts": {
+        "bower-install": "node_modules/.bin/bower install"
+    },
+    "devDependencies": {
+        "bower": "1.3.12"
+    }
+}

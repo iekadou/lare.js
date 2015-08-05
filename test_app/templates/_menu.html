@@ -1,0 +1,12 @@
+<ul>
+    <li {% if menu_index %}class="active"{% endif %}><a id="index-link" href="{% url 'index' %}" data-lare>index</a></li>
+    <li {% if menu_old_version %}class="active"{% endif %}><a id="old-version-link" href="{% url 'old_version' %}" data-lare>old version</a></li>
+    <li {% if menu_about %}class="active"{% endif %}><a id="about-link" href="{% url 'about' %}" data-lare>about</a></li>
+    <li {% if menu_ignored_metatag %}class="active"{% endif %}><a id="ignored-metatag-link" href="{% url 'ignored_metatag' %}" data-lare>invalid-metatag</a></li>
+	<li {% if menu_no_matching_id %}class="active"{% endif %}><a id="no-matching-id-link" href="{% url 'no_matching_id' %}" data-lare>no-matching-id</a></li>
+	<li {% if menu_no_lare_reponse %}class="active"{% endif %}><a id="no-lare-response-link" href="{% url 'no_lare_response' %}" data-lare>no-lare-response</a></li>
+	<li {% if menu_lare_ready_lare_always %}class="active"{% endif %}><a id="lare-ready-lare-always-link" href="{% url 'lare_ready_lare_always' %}" data-lare>lare-ready-lare-always</a></li>
+    <li {% if menu_project %}class="active"{% endif %}><a id="project-link" href="{% url 'project' %}" data-lare>project</a></li>
+    <li {% if menu_settings %}class="active"{% endif %}><a id="settings-link" href="{% url 'settings' %}" data-lare>settings</a></li>
+    <li {% if menu_settings %}class="active"{% endif %}><a id="blank-link" href="{% url 'settings' %}" target="_blank" data-lare>blank link</a></li>
+</ul>

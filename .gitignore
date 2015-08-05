@@ -1,0 +1,9 @@
+.idea/
+build/
+node_modules/
+test_app/static/jquery/
+venv/
+
+*.pyc
+npm-debug.log
+test_app/static/lare.js

@@ -1,0 +1,10 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block page %}
+    <div id="page">
+        {% include '_menu.html' with menu_project=True %}
+        {% block content %}{% endblock content %}
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.project{% endblock lare_namespace %}

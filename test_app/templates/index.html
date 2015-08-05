@@ -1,0 +1,12 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block title %}index-title{% endblock title %}
+
+{% block page %}
+    <div id="page">
+        {% include '_menu.html' with menu_index=True %}
+        <div id="content">index-content</div>
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.index{% endblock lare_namespace %}

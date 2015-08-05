@@ -1,0 +1,24 @@
+{% lare_extends '__base.html' 'lare' %}
+
+{% block title %}lare-ready-lare-always-title{% endblock title %}
+
+{% block page %}
+    <div id="page">
+        {% include '_menu.html' with menu_lare_ready_lare_always=True %}
+        <div id="content">lare-ready-lare-always-content</div>
+        <script type="text/javascript">
+            {% if lare_state == 'disabled' %}$.fn.lare.disable();{% endif %}
+            $(document).lareReady(function(){
+                $('body').append($('<div class="lare-ready-div"></div>'));
+            });
+            $(document).lareReadyOnce(function(){
+                $('body').append($('<div class="lare-ready-once-div"></div>'));
+            });
+            $(document).lareAlways(function(){
+                $('body').append($('<div class="lare-always-div"></div>'));
+            });
+        </script>
+    </div>
+{% endblock page %}
+
+{% block lare_namespace %}lare.lare-ready-lare-always{% endblock lare_namespace %}
