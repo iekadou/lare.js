@@ -1,6 +1,6 @@
 /*!
- * lare.js v1.0.0 by @lare-team
- * Copyright (c) 2015 lare-team
+ * lare.js v1.0.1 by @lare-team
+ * Copyright (c) 2015-2016 lare-team
  *
  * http://www.iekadou.com/programming/lare.js/
  *
@@ -9,7 +9,7 @@
  */
 (function ($) {
     'use strict';
-    var version = "1.0.0";
+    var version = "1.0.1";
     var supportedVersion = "1.0.0";
 
     function fnLare(selector, options) {
@@ -55,7 +55,7 @@
         }
 
         // ignore cross origin links and pass relative IE links (cause they IE can't do code)
-        if ((location.protocol !== link.protocol || location.hostname !== link.hostname) && !(link.protocol === ':' && link.hostname === '')) {
+        if ((location.protocol !== link.protocol && link.protocol !== '' || location.hostname !== link.hostname && link.hostname !== '') && !(link.protocol === ':' && link.hostname === '')) {
             return;
         }
 
@@ -206,7 +206,12 @@
                 body_revert: body_match ? revert_body_parts : null
             });
             if (opts.push || opts.replace) {
-                window.history.replaceState(fnLare.state, fnLare.state.title, fnLare.state.url);
+                // try catch for Firefox and IE having limits for state size
+                try {
+                    window.history.replaceState(fnLare.state, fnLare.state.title, fnLare.state.url);
+                } catch (Exception) {
+                    loadHard(opts.plainUrl);
+                }
             }
 
             fnLare.state = {

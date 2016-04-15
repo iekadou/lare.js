@@ -1,6 +1,6 @@
 {
     "name": "lare",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./lare.js",
     "dependencies": {
         "jquery": ">=1.9"
