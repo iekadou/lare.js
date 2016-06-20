@@ -19,7 +19,7 @@ class SeleniumTestCase(LiveServerTestCase):
         if getenv('SAUCE_USERNAME'):
             self.browser = self.sauce_labs_driver()
         else:
-            self.browser = webdriver.Chrome(executable_path='/Users/jonas/Coding/iekadou/lare.js/venv/bin/chromedriver')
+            self.browser = webdriver.Chrome()
         self.browser.set_window_size(50, 50)
         self.wait = ui.WebDriverWait(self.browser, 10)
         super(SeleniumTestCase, self).setUp()
